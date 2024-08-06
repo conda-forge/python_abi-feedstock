@@ -17,6 +17,8 @@ build:
 
 requirements:
   run_constrained:
+    # For cpython>=3.13, we will make python package depend on this package.
+    # Therefore there is no need to distinguish freethreading or not in the build string
     - python {{ python_version }}.* *_cpython                                                      # [python_implementation == "cpython"]
     - python {{ python_version }}.* *_{{ python_impl_version.replace('.', '') }}_pypy              # [python_implementation == "pypy"]
     - python {{ python_version }}.* *_native{{ python_impl_version.replace('.', '') }}_graalpy     # [python_implementation == "graalpy"]
