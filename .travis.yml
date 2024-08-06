@@ -1,11 +1,11 @@
 # This file was generated automatically from conda-smithy. To update this configuration,
 # update the conda-forge.yml and/or the recipe/meta.yaml.
 
-language: generic
+language: shell
 
 
 
-matrix:
+jobs:
   include:
     - env: CONFIG=linux_aarch64_python_abi_tagcp310python_impl_version3.10python_implementationcpythonpython_version3.10 UPLOAD_PACKAGES=True PLATFORM=linux-aarch64 DOCKER_IMAGE=quay.io/condaforge/linux-anvil-aarch64
       os: linux
@@ -18,6 +18,16 @@ matrix:
       dist: focal
 
     - env: CONFIG=linux_aarch64_python_abi_tagcp312python_impl_version3.12python_implementationcpythonpython_version3.12 UPLOAD_PACKAGES=True PLATFORM=linux-aarch64 DOCKER_IMAGE=quay.io/condaforge/linux-anvil-aarch64
+      os: linux
+      arch: arm64
+      dist: focal
+
+    - env: CONFIG=linux_aarch64_python_abi_tagcp313python_impl_version3.13python_implementationcpythonpython_version3.13 UPLOAD_PACKAGES=True PLATFORM=linux-aarch64 DOCKER_IMAGE=quay.io/condaforge/linux-anvil-aarch64
+      os: linux
+      arch: arm64
+      dist: focal
+
+    - env: CONFIG=linux_aarch64_python_abi_tagcp313tpython_impl_version3.13python_implementationcpythonpython_version3.13 UPLOAD_PACKAGES=True PLATFORM=linux-aarch64 DOCKER_IMAGE=quay.io/condaforge/linux-anvil-aarch64
       os: linux
       arch: arm64
       dist: focal
@@ -72,6 +82,16 @@ matrix:
       arch: ppc64le
       dist: focal
 
+    - env: CONFIG=linux_ppc64le_python_abi_tagcp313python_impl_version3.13python_implementationcpythonpython_version3.13 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=quay.io/condaforge/linux-anvil-ppc64le
+      os: linux
+      arch: ppc64le
+      dist: focal
+
+    - env: CONFIG=linux_ppc64le_python_abi_tagcp313tpython_impl_version3.13python_implementationcpythonpython_version3.13 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=quay.io/condaforge/linux-anvil-ppc64le
+      os: linux
+      arch: ppc64le
+      dist: focal
+
     - env: CONFIG=linux_ppc64le_python_abi_tagcp37mpython_impl_version3.7python_implementationcpythonpython_version3.7 UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=quay.io/condaforge/linux-anvil-ppc64le
       os: linux
       arch: ppc64le
@@ -110,6 +130,9 @@ matrix:
 script:
   - export CI=travis
   - export GIT_BRANCH="$TRAVIS_BRANCH"
+  - export flow_run_id="travis_$TRAVIS_JOB_ID"
+  - export sha="$TRAVIS_COMMIT"
+  - export remote_url="https://github.com/$TRAVIS_REPO_SLUG"
   - export FEEDSTOCK_NAME=$(basename ${TRAVIS_REPO_SLUG})
   - if [[ "${TRAVIS_PULL_REQUEST:-}" == "false" ]]; then export IS_PR_BUILD="False"; else export IS_PR_BUILD="True"; fi
 
