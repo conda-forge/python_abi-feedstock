@@ -17,6 +17,12 @@ jobs:
       win_64_python_abi_tagcp312python_impl_version3.12python_implementationcpythonpython_version3.12:
         CONFIG: win_64_python_abi_tagcp312python_impl_version3.12python_implementationcpythonpython_version3.12
         UPLOAD_PACKAGES: 'True'
+      win_64_python_abi_tagcp313python_impl_version3.13python_implementationcpythonpython_version3.13:
+        CONFIG: win_64_python_abi_tagcp313python_impl_version3.13python_implementationcpythonpython_version3.13
+        UPLOAD_PACKAGES: 'True'
+      win_64_python_abi_tagcp313tpython_impl_version3.13python_implementationcpythonpython_version3.13:
+        CONFIG: win_64_python_abi_tagcp313tpython_impl_version3.13python_implementationcpythonpython_version3.13
+        UPLOAD_PACKAGES: 'True'
       win_64_python_abi_tagcp37mpython_impl_version3.7python_implementationcpythonpython_version3.7:
         CONFIG: win_64_python_abi_tagcp37mpython_impl_version3.7python_implementationcpythonpython_version3.7
         UPLOAD_PACKAGES: 'True'
@@ -51,7 +57,7 @@ jobs:
         scriptSource: inline
         script: |
           import urllib.request
-          url = 'https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe'
+          url = 'https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe'
           path = r"$(Build.ArtifactStagingDirectory)/Miniforge.exe"
           urllib.request.urlretrieve(url, path)
 
@@ -69,6 +75,9 @@ jobs:
         PYTHONUNBUFFERED: 1
         CONFIG: $(CONFIG)
         CI: azure
+        flow_run_id: azure_$(Build.BuildNumber).$(System.JobAttempt)
+        remote_url: $(Build.Repository.Uri)
+        sha: $(Build.SourceVersion)
         UPLOAD_PACKAGES: $(UPLOAD_PACKAGES)
         UPLOAD_TEMP: $(UPLOAD_TEMP)
         BINSTAR_TOKEN: $(BINSTAR_TOKEN)
