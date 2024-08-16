@@ -1,8 +1,13 @@
-{% set build_num = 4 %}
+{% set build_num = 5 %}
 {% if python_impl_version is not defined %}
-{% set python_impl_version = "3.6" %}
+{% set python_impl_version = "3.8" %}
 {% endif %}
 
+{% if python_version is not defined %}
+{% set python_version = "3.8" %}
+{% endif %}
+
+{% set python_minor = python_version.split(".")[1]|int %}
 
 package:
   name: python_abi
@@ -17,9 +22,11 @@ build:
 
 requirements:
   run_constrained:
-    # For cpython>=3.13, we will make python package depend on this package.
-    # Therefore there is no need to distinguish freethreading or not in the build string
+    {% if python_minor >= 3.13 %}
+    - python {{ python_version }}.* *_{{ python_abi_tag }}                                         # [python_implementation == "cpython"]
+    {% else %}
     - python {{ python_version }}.* *_cpython                                                      # [python_implementation == "cpython"]
+    {% endif %}
     - python {{ python_version }}.* *_{{ python_impl_version.replace('.', '') }}_pypy              # [python_implementation == "pypy"]
     - python {{ python_version }}.* *_native{{ python_impl_version.replace('.', '') }}_graalpy     # [python_implementation == "graalpy"]
 
