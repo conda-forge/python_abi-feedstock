@@ -22,7 +22,7 @@ build:
 
 requirements:
   run_constrained:
-    {% if python_minor >= 3.13 %}
+    {% if python_minor >= 13 %}
     - python {{ python_version }}.* *_{{ python_abi_tag }}                                         # [python_implementation == "cpython"]
     {% else %}
     - python {{ python_version }}.* *_cpython                                                      # [python_implementation == "cpython"]
