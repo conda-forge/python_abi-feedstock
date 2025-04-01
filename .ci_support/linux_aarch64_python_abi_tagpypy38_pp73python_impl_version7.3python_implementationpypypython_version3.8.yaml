@@ -1,21 +1,17 @@
-BUILD:
-- aarch64-conda_cos7-linux-gnu
-cdt_arch:
-- aarch64
 cdt_name:
-- cos7
+- conda
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- quay.io/condaforge/linux-anvil-x86_64:alma9
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- '2.7'
+- '3.8'
 python_abi_tag:
 - pypy38_pp73
 python_impl:
@@ -24,6 +20,8 @@ python_impl_version:
 - '7.3'
 python_implementation:
 - pypy
+python_min:
+- '3.9'
 python_version:
 - '3.8'
 target_platform:

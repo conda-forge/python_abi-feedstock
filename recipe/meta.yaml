@@ -1,4 +1,4 @@
-{% set build_num = 5 %}
+{% set build_num = 6 %}
 {% if python_impl_version is not defined %}
 {% set python_impl_version = "3.8" %}
 {% endif %}
@@ -16,9 +16,10 @@ package:
 build:
   number: {{ build_num }}
   string: {{ build_num }}_{{ python_abi_tag }}
-  track_features:         # [python_implementation != "cpython"]
+  track_features:
     - pypy                # [python_implementation == "pypy"]
     - native_graalpy      # [python_implementation == "graalpy"]
+    - freethreading       # [python_abi_tag == "cp313t"]
 
 requirements:
   run_constrained:

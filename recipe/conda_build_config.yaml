@@ -52,7 +52,7 @@ python_implementation:
 
 # Following are dummy keys to fix rerendering
 python:
- - "2.7"
+ - "3.8"
 python_impl:
  - '*'
 numpy:
@@ -63,6 +63,8 @@ cxx_compiler:
  - "*"
 vc:
  - "*"
+is_python_min:
+ - false
 
 zip_keys:
  -

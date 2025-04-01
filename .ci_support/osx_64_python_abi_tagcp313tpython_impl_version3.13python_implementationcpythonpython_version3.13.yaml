@@ -13,7 +13,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '2.7'
+- '3.8'
 python_abi_tag:
 - cp313t
 python_impl:
@@ -22,6 +22,8 @@ python_impl_version:
 - '3.13'
 python_implementation:
 - cpython
+python_min:
+- '3.9'
 python_version:
 - '3.13'
 target_platform:
