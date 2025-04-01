@@ -63,6 +63,8 @@ cxx_compiler:
  - "*"
 vc:
  - "*"
+is_python_min:
+ - false
 
 zip_keys:
  -
