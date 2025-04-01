@@ -22,6 +22,8 @@ python_impl_version:
 - '23.0'
 python_implementation:
 - graalpy
+python_min:
+- '3.9'
 python_version:
 - '3.10'
 target_platform:

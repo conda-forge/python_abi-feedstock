@@ -22,6 +22,8 @@ python_impl_version:
 - '3.12'
 python_implementation:
 - cpython
+python_min:
+- '3.9'
 python_version:
 - '3.12'
 target_platform:

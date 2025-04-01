@@ -16,6 +16,8 @@ python_impl_version:
 - '3.13'
 python_implementation:
 - cpython
+python_min:
+- '3.9'
 python_version:
 - '3.13'
 target_platform:
