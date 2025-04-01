@@ -13,7 +13,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '2.7'
+- '3.8'
 python_abi_tag:
 - pypy39_pp73
 python_impl:
