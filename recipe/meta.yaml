@@ -1,4 +1,4 @@
-{% set build_num = 6 %}
+{% set build_num = 7 %}
 {% if python_impl_version is not defined %}
 {% set python_impl_version = "3.8" %}
 {% endif %}
@@ -16,6 +16,7 @@ package:
 build:
   number: {{ build_num }}
   string: {{ build_num }}_{{ python_abi_tag }}
+  noarch: generic
   track_features:
     - pypy                # [python_implementation == "pypy"]
     - native_graalpy      # [python_implementation == "graalpy"]
