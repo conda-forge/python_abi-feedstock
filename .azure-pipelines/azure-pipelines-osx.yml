@@ -74,7 +74,7 @@ jobs:
       osx_arm64_python_abi_tagpypy39_pp73python_impl_version7.3python_implementationpypypython_version3.9:
         CONFIG: osx_arm64_python_abi_tagpypy39_pp73python_impl_version7.3python_implementationpypypython_version3.9
         UPLOAD_PACKAGES: 'True'
-    maxParallel: 17
+    maxParallel: 14
   timeoutInMinutes: 360
   variables: {}
 
