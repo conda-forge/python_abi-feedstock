@@ -13,17 +13,17 @@ pin_run_as_build:
 python:
 - '3.8'
 python_abi_tag:
-- cp313t
+- cp314t
 python_impl:
 - '*'
 python_impl_version:
-- '3.13'
+- '3.14'
 python_implementation:
 - cpython
 python_min:
 - '3.9'
 python_version:
-- '3.13'
+- '3.14'
 zip_keys:
 - - python_abi_tag
   - python_version
