@@ -1,5 +1,3 @@
-cdt_name:
-- conda
 channel_sources:
 - conda-forge
 channel_targets:
@@ -21,7 +19,7 @@ python_impl_version:
 python_implementation:
 - cpython
 python_min:
-- '3.9'
+- '3.10'
 python_version:
 - '3.13'
 zip_keys:

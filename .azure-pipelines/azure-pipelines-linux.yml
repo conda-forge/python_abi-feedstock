@@ -36,6 +36,14 @@ jobs:
         CONFIG: linux_64_python_abi_tagcp314tpython_impl_version3.14python_implementationcpythonpython_version3.14
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_python_abi_tagcp315python_impl_version3.15python_implementationcpythonpython_version3.15:
+        CONFIG: linux_64_python_abi_tagcp315python_impl_version3.15python_implementationcpythonpython_version3.15
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_python_abi_tagcp315tpython_impl_version3.15python_implementationcpythonpython_version3.15:
+        CONFIG: linux_64_python_abi_tagcp315tpython_impl_version3.15python_implementationcpythonpython_version3.15
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64_python_abi_tagcp38python_impl_version3.8python_implementationcpythonpython_version3.8:
         CONFIG: linux_64_python_abi_tagcp38python_impl_version3.8python_implementationcpythonpython_version3.8
         UPLOAD_PACKAGES: 'True'
