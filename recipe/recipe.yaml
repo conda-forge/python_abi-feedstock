@@ -27,6 +27,10 @@ requirements:
     - if: python_implementation == "graalpy"
       then: python ${{ python_version }}.* *_native${{ python_impl_version | replace('.', '') }}_graalpy
 
+tests:
+  - script:
+      - echo "hello"
+
 about:
   summary: Metapackage to select python implementation
   license: BSD-3-Clause
