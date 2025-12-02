@@ -13,7 +13,7 @@ build:
   string: ${{ build_num }}_${{ python_abi_tag }}
   noarch: generic
   variant:
-    down_prioritize_variant: ${{ (1 if python_implementation == "pypi" or python_implementation == "graalpy" else 0) + (1 if python_abi_tag == "cp313t" else 0) }}
+    down_prioritize_variant: ${{ (2 if python_implementation == "pypy" or python_implementation == "graalpy" else 0) + (1 if python_abi_tag.endswith("t") else 0) }}
 
 requirements:
   run_constraints:
