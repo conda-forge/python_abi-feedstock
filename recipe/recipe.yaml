@@ -1,0 +1,44 @@
+schema_version: 1
+
+context:
+  build_num: 8
+  python_minor: ${{ ( python_version | split(".") | first | int ) if python_version }}
+
+package:
+  name: python_abi
+  version: ${{ python_version }}
+
+build:
+  number: ${{ build_num }}
+  string: ${{ build_num }}_${{ python_abi_tag }}
+  noarch: generic
+  variant:
+    down_prioritize_variant: ${{ (2 if python_implementation == "pypy" or python_implementation == "graalpy" else 0) + (1 if python_abi_tag.endswith("t") else 0) }}
+
+requirements:
+  run_constraints:
+    - if: python_implementation == "cpython"
+      then:
+        - if: python_minor >= 13
+          then: python ${{ python_version }}.* *_${{ python_abi_tag }}
+          else: python ${{ python_version }}.* *_cpython
+    - if: python_implementation == "pypy"
+      then: python ${{ python_version }}.* *_${{ python_impl_version | replace('.', '') }}_pypy
+    - if: python_implementation == "graalpy"
+      then: python ${{ python_version }}.* *_native${{ python_impl_version | replace('.', '') }}_graalpy
+
+tests:
+  - script:
+      - echo "hello"
+
+about:
+  summary: Metapackage to select python implementation
+  license: BSD-3-Clause
+  license_file: LICENSE
+  homepage: https://github.com/conda-forge/python_abi-feedstock
+
+extra:
+  recipe-maintainers:
+    - chrisburr
+    - isuruf
+    - xhochy
