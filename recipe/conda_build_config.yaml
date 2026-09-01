@@ -72,13 +72,7 @@ python:
 python_impl:
  - '*'
 numpy:
- - '1.16'
-c_compiler:
- - "*"
-cxx_compiler:
- - "*"
-vc:
- - "*"
+ - 2
 is_python_min:
  - false
 
