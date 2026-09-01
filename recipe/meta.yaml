@@ -20,7 +20,7 @@ build:
   track_features:
     - pypy                # [python_implementation == "pypy"]
     - native_graalpy      # [python_implementation == "graalpy"]
-    - freethreading       # [python_abi_tag in ("cp313t", "cp314t", "cp315t")]
+    - freethreading       # [python_implementation == "cpython" and python_abi_tag.endswith("t")]
 
 requirements:
   run_constrained:
