@@ -11,7 +11,7 @@
 
 package:
   name: python_abi
-  version: {{ python_version }}
+  version: "{{ python_version }}"
 
 build:
   number: {{ build_num }}
